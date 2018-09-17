@@ -1,14 +1,4 @@
 #! /usr/bin/python3
-                        #
-# Integra Funciones De:                                         #
-#                                                               #
-# Python 3                                                      #
-# Aircrack-ng                                                   #
-# Xterm                                                         #
-#                                                               #
-# Un saludo                                                     # 
-#                                                               #
-#################################################################""")
 
 import os
 import click
@@ -20,24 +10,16 @@ def menu():
 
 	os.system ('sudo clear')
 
-	print (""" 
-__    __   ___   __     ____  __    __ __  ____ __    ___ ____   ___    ___ __ __
- ||    ||  // \\  ||    ||     ||    || || ||    ||   //   || \\ // \\  //   || //
- \\ /\ // ((   )) ||    ||==   \\ /\ // || ||==  ||  ((    ||_// ||=|| ((    ||<< 
-  \V/\V/   \\_//  ||__| ||      \V/\V/  || ||    ||   \\__ || \\ || ||  \\__ || \\
-                                                                                   
-                            Desautenticador De Clientes""")
-
 	print ("""
 $#################################$
 #               MENU              #  
 #                                 #
-# 1) ataque espesifico            #
+# 1) Specific Attack              #
 #                                 #
-# 2) Atacar a todos               #
+# 2) General Attack (Recommended) #
 #                                 #
-# 3) Ya tengo el Handshake        #
-#                                 #
+# 3) I already have the handshake #_____
+#PS:Just type the number of the option#|
 $#################################$""")
 
 
@@ -47,24 +29,24 @@ os.system ("clear")
 
 print ("""
 =--------------------------=
-|Desconectando los clientes|
+|Deauthenticating clients|
 =--------------------------=""")
 
 print ("""\n
 =**********************************=
-* Ingrese el mac del wifi objetivo *
+* Type target's MAC address *
 =**********************************=""")
 bssid = input ("\n>> ")
 
 print ("""\n
 =*************************************=
-* Ingrese el nombre del wifi objetivo *
+* Type target network's name. *
 =*************************************=""")
 essid = input ("\n>> ")
 
 print ("""\n
 =*****************************************=
-* Ingrese su targeta wifi en modo Monitor *
+* Type your network adapter name in monitor mode. (Most likely: wlan0mon, wlo1mon) *
 =*****************************************=""")
 targetaM = input ("\n>> ")
 
@@ -79,7 +61,7 @@ while True:
 
 		print ("""\n
 =*********************************************************=
-* Ingrese el mac de un usuario conectado al wifi objetivo *
+* Type the MAC Address of any user connected to the target network. *
 =*********************************************************=""")
 
 		station = input ("\n>> ")
@@ -89,7 +71,7 @@ while True:
 		os.system (comando1)
 		os.system ('clear')
 
-		print ("logro capturar el HANDSHAKE ?")
+		print ("Did you get the handshake?")
 
 		print ("""\n
 $############$
@@ -111,14 +93,14 @@ $############$\n""")
 
 			elif opc1 == "2":
 
-				print ("*** reintentando ***")
+				print ("*** Retrying... ***")
 				os.system ('clear')
 				os.system (comando1)
 				os.system ("clear")
-				print ("*** Por favor espere ***")
+				print ("*** Please wait ***")
 				time.sleep (2)
 				os.system ('clear')
-				print ("logro capturar el HANDSHAKE ?\n")
+				print ("Did you get the handshake?\n")
 				
 				print ("""\n
 $############$
@@ -137,7 +119,7 @@ $############$\n""")
 				break
 
 			else:
-				print ("*** Esa opcion no existe ***")
+				print ("*** Option not available ***")
 				os.system ('clear')
 
 	elif opc == "2":
@@ -155,5 +137,5 @@ $############$\n""")
 
 	else:
 
-		print ("*** Esa opcion no existe ***")
+		print ("*** Option not available***")
 		time.sleep (2)
