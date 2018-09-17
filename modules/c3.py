@@ -1,33 +1,12 @@
-#! /usr/bin/python3
-
-# Integra Funciones De:                                         #
-#                                                               #
-# Python 3                                                      #
-# Aircrack-ng                                                   #
-# Xterm                                                         #
-#                                                               #
-# Un saludo                                                     # 
-#                                                               #
-#################################################################""")
-
+#! /usr/bin/python3  
 import os
+ruta_captura = ("../files/")
+ruta_diccionarios = ("../Dictionaries/")
 
-###########################################################
-ruta_captura = ("../captura/")
-ruta_diccionarios = ("../diccionarios/")
-###########################################################
-
-print ("""
-__    __   ___   __     ____  __    __ __  ____ __    ___ ____   ___    ___ __ __
- ||    ||  // \\  ||    ||     ||    || || ||    ||   //   || \\ // \\  //   || //
- \\ /\ // ((   )) ||    ||==   \\ /\ // || ||==  ||  ((    ||_// ||=|| ((    ||<< 
-  \V/\V/   \\_//  ||__| ||      \V/\V/  || ||    ||   \\__ || \\ || ||  \\__ || \\
-                                                                                   
-                                Crackear A Fuerza Bruta""")
 
 # variables a usar
 
-print ("\nIngrese el nombre del archivo capturado")
+print ("\n Type the name of the captured file. This should be in the 'files' folder.")
 archivo = input ("wifi >> ")
 handshake = ruta_captura + archivo
 
